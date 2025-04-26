@@ -2,6 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="boton">#4CAF50</color>
+    <color name="boton">#63EB0B</color>
     <color name="adicional">#F46F36</color>
 </resources>

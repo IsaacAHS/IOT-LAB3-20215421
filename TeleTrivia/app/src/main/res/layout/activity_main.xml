@@ -8,6 +8,19 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+    <!-- Imagen de fondo -->
+    <ImageView
+        android:id="@+id/imageBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/murcielago"
+        android:alpha="0.5"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="340dp"/>
+
+    <!-- Contenido principal -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -16,7 +29,7 @@
         android:text="¡Bienvenido a TeleTrivia!"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:textColor="#333333"
+        android:textColor="#121212"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +43,7 @@
         android:text="La app diseñada para testear tu conocimiento y retar a tus amigos!"
         android:textSize="16sp"
         android:textAlignment="center"
-        android:textColor="#555555"
+        android:textColor="#070E61"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -43,7 +56,7 @@
         android:text="A continuación, elige los parámetros de juego"
         android:textSize="16sp"
         android:textAlignment="center"
-        android:textColor="#555555"
+        android:textColor="#070E61"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
@@ -156,7 +169,7 @@
         app:cornerRadius="24dp"
         app:icon="@drawable/ic_network"
         app:iconGravity="start"
-        android:backgroundTint="#1E2761"
+        android:backgroundTint="#100D5B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardViewParameters"
