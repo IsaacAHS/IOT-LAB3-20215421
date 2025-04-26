@@ -64,6 +64,7 @@ public class JuegoActivity extends AppCompatActivity {
     private RadioButton rbAnswer3;
     private RadioButton rbAnswer4;
     private Button btnNext;
+    private TextView tvTitle;
 
     // Variables del juego
     private String category;
@@ -99,12 +100,17 @@ public class JuegoActivity extends AppCompatActivity {
         rbAnswer3 = findViewById(R.id.rbAnswer3);
         rbAnswer4 = findViewById(R.id.rbAnswer4);
         btnNext = findViewById(R.id.btnNext);
+        tvTitle = findViewById(R.id.tvTitle);
 
         // Obtener datos del intent
         Intent intent = getIntent();
         category = intent.getStringExtra("category");
         quantity = intent.getIntExtra("quantity", 10);
         difficulty = intent.getStringExtra("difficulty");
+
+        // Establecer título y categoría
+        tvTitle.setText("¿Listo? ¡Juega!");
+        tvCategoryName.setText(category);
 
         // Determinar el tiempo según la dificultad
         switch (difficulty) {
@@ -363,7 +369,7 @@ public class JuegoActivity extends AppCompatActivity {
         Question question = questions.get(index);
 
         // Actualizar interfaz
-        tvQuestionCount.setText((index + 1) + "/" + questions.size());
+        tvQuestionCount.setText("Pregunta " + (index + 1) + "/" + questions.size());
         tvCategoryName.setText(question.getCategory());
         tvQuestion.setText(fromHtml(question.getQuestion()));
 
@@ -431,5 +437,4 @@ public class JuegoActivity extends AppCompatActivity {
             return android.text.Html.fromHtml(html).toString();
         }
     }
-
 }

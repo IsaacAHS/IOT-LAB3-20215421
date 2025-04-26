@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B3E5FC"
     android:padding="16dp"
     tools:context=".MainActivity">
 
@@ -12,114 +13,171 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="TeleTrivia"
+        android:text="¡Bienvenido a TeleTrivia!"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="#333333"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvCategoryLabel"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvSubtitle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Categoría:"
+        android:layout_marginTop="8dp"
+        android:text="La app diseñada para testear tu conocimiento y retar a tus amigos!"
         android:textSize="16sp"
+        android:textAlignment="center"
+        android:textColor="#555555"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-    <Spinner
-        android:id="@+id/spinnerCategory"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvCategoryLabel"
-        app:layout_constraintTop_toTopOf="@+id/tvCategoryLabel"
-        app:layout_constraintBottom_toBottomOf="@+id/tvCategoryLabel" />
-
     <TextView
-        android:id="@+id/tvQuantityLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Cantidad:"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCategoryLabel" />
-
-    <EditText
-        android:id="@+id/etQuantity"
+        android:id="@+id/tvInstructions"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:inputType="number"
-        android:hint="Ingrese cantidad"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvQuantityLabel"
-        app:layout_constraintTop_toTopOf="@+id/tvQuantityLabel"
-        app:layout_constraintBottom_toBottomOf="@+id/tvQuantityLabel" />
-
-    <TextView
-        android:id="@+id/tvDifficultyLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Dificultad:"
+        android:layout_marginTop="8dp"
+        android:text="A continuación, elige los parámetros de juego"
         android:textSize="16sp"
+        android:textAlignment="center"
+        android:textColor="#555555"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvQuantityLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle" />
 
-    <RadioGroup
-        android:id="@+id/rgDifficulty"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewParameters"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="#F5F5F5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvDifficultyLabel"
-        app:layout_constraintTop_toTopOf="@+id/tvDifficultyLabel"
-        app:layout_constraintBottom_toBottomOf="@+id/tvDifficultyLabel">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInstructions">
 
-        <RadioButton
-            android:id="@+id/rbEasy"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Fácil" />
+            android:orientation="vertical"
+            android:padding="16dp">
 
-        <RadioButton
-            android:id="@+id/rbMedium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Medio" />
+            <TextView
+                android:id="@+id/tvCategoryLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categoría:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
 
-        <RadioButton
-            android:id="@+id/rbHard"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Difícil" />
-    </RadioGroup>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCategory"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
 
-    <Button
+                <AutoCompleteTextView
+                    android:id="@+id/actvCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:hint="Categoría" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvQuantityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Cantidad:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilQuantity"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etQuantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:hint="# Preguntas" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/tvDifficultyLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Dificultad:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#333333" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilDifficulty"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/actvDifficulty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    android:hint="Dificultad" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnCheckConnection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Comprobar la conexión a internet"
+        android:layout_marginTop="24dp"
+        android:text="Comprobar Conexión"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_network"
+        app:iconGravity="start"
+        android:backgroundTint="#1E2761"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rgDifficulty" />
+        app:layout_constraintTop_toBottomOf="@+id/cardViewParameters"
+        app:layout_constraintWidth_percent="0.7" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Comenzar"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        app:cornerRadius="24dp"
+        app:icon="@drawable/ic_play"
+        app:iconGravity="start"
+        android:backgroundTint="#CCCCCC"
         android:enabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCheckConnection" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCheckConnection"
+        app:layout_constraintWidth_percent="0.7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

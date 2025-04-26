@@ -11,13 +11,9 @@ import android.widget.TextView;
 public class EstadisticasActivity extends AppCompatActivity {
 
     // UI Components
-    private TextView tvCategoryResult;
-    private TextView tvDifficultyResult;
-    private TextView tvTimeUsed;
     private TextView tvCorrectAnswers;
     private TextView tvIncorrectAnswers;
     private TextView tvUnanswered;
-    private TextView tvScore;
     private CustomChartView chartView;
     private Button btnPlayAgain;
 
@@ -36,13 +32,9 @@ public class EstadisticasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_estadisticas);
 
         // Inicializar vistas
-        tvCategoryResult = findViewById(R.id.tvCategoryResult);
-        tvDifficultyResult = findViewById(R.id.tvDifficultyResult);
-        tvTimeUsed = findViewById(R.id.tvTimeUsed);
         tvCorrectAnswers = findViewById(R.id.tvCorrectAnswers);
         tvIncorrectAnswers = findViewById(R.id.tvIncorrectAnswers);
         tvUnanswered = findViewById(R.id.tvUnanswered);
-        tvScore = findViewById(R.id.tvScore);
         chartView = findViewById(R.id.chartView);
         btnPlayAgain = findViewById(R.id.btnPlayAgain);
 
@@ -89,28 +81,14 @@ public class EstadisticasActivity extends AppCompatActivity {
     }
 
     private void displayResults() {
-        // Mostrar categoría y dificultad
-        tvCategoryResult.setText("Categoría: " + category);
-        tvDifficultyResult.setText("Dificultad: " + difficulty);
-
-        // Mostrar tiempo utilizado
-        int minutes = (int) (timeUsed / 1000) / 60;
-        int seconds = (int) (timeUsed / 1000) % 60;
-        String timeFormatted = String.format("%02d:%02d", minutes, seconds);
-        tvTimeUsed.setText(timeFormatted);
-
         // Mostrar resultados de respuestas
         tvCorrectAnswers.setText(String.valueOf(correctAnswers));
         tvIncorrectAnswers.setText(String.valueOf(incorrectAnswers));
         tvUnanswered.setText(String.valueOf(unansweredQuestions));
-
-        // Mostrar puntuación final
-        tvScore.setText(correctAnswers + "/" + totalQuestions);
     }
 
     private void setupChart() {
         // Configurar datos para el gráfico personalizado
         chartView.setStatistics(totalQuestions, correctAnswers, incorrectAnswers, unansweredQuestions);
     }
-
 }
